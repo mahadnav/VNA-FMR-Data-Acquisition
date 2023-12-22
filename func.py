@@ -272,7 +272,7 @@ class Plot:
 
         plt.subplots_adjust(left=0.2, right=0.9, bottom=1, top=1.5, wspace=0.6, hspace=1)
         
-        if S21:
+        if S21 is not False:
             plt.figure(figsize=(8,3))
             plt.subplot(1,2,1)
             plt.plot(field, S21.imag[:, ind],'ro-', markersize=3, linewidth=1)
