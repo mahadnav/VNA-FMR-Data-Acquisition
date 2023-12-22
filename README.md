@@ -53,7 +53,7 @@ The notebook generates various plots, including raw and filtered S-parameter plo
 
 This notebook was developed for PhysLab @ LUMS.
 
-- **Developer:** Mahad Naveed (BSc Physics 2023)
+- **Developer:** Mahad Naveed (BSc Physics @ LUMS 2023)
 - **Supervisor:** Dr. Sabieh Anwar
 - **Mentor:** Dr. Adnan Raza
 
