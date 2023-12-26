@@ -283,68 +283,6 @@ class Experiment1P():
         else:
             self.Data_dPdH['dP/dH'] = A_Pabs_smoothed
         Plot_dPdH(self.Data_dPdH)
-
-    # def Measure_dPdH(self, freq, fields, file_name, 
-    #                  oscH=5, osc_points_per_cycle=4, osc_repetitions=10):
-
-    #     self.zva.set_traces_SParameters_1P()
-    #     self.channel1.SetSweep(freq, freq, num_points=1)
-        
-    #     self.Data_Osc['h'] = fields
-    #     self.Data_Osc['f'] = freq
-    #     self.Data_Osc['osc_points_per_cycle'] = osc_points_per_cycle
-    #     self.Data_Osc['osc_repetitions'] = osc_repetitions
-    #     self.Data_Osc['oscH'] = oscH
-        
-    #     oscR = osc_repetitions
-    #     oscN = oscR * osc_points_per_cycle
-    #     ss = np.sin(np.linspace(0, 2 * oscR * np.pi, oscN))
-        
-    #     self.Data_Osc['AC Field'] = ss * oscH
-    #     data_shape = (len(fields), oscN)
-    #     self.Data_Osc['S11'] = np.zeros(data_shape, dtype=complex)
-    #     self.Data_Osc.info = self.Data_Osc_Info
-
-    #     self.Data_dPdH['h'] = fields
-    #     self.Data_dPdH['f'] = freq
-    #     self.Data_dPdH['dP/dH'] = np.zeros_like(fields) + np.nan
-    #     extra_info = ['',
-    #                   'Frequency : %(f)0.6f GHz' % {'f':freq/1E9},
-    #                   'Osc Field : %(oscH)0.1f Oe' % {'oscH':oscH}, 
-    #                   'OscPoints : %(oscP)d' % {'oscP':osc_points_per_cycle},
-    #                   'OscReps :%(oscR)d' % {'oscR':oscR},
-    #                   '']
-    #     self.Data_dPdH.info = self.dPdH_Info + '\n'.join(extra_info)
-        
-    #     start = time.time()
-    #     # Loop for each DC field
-    #     for i, h in enumerate(fields):
-    #         current = self.field2current(h)
-    #         self.PS.set_current(current)
-    #         time.sleep(0.02)
-            
-    #         cs = current + self.Data_Osc['AC Field']/self.HperOut
-
-
-    #         # Loop for each AC field
-    #         for ci, c in enumerate(cs):
-    #             current = c
-    #             time.sleep(0.02)
-    #             self.Data_Osc['S11'][i,ci] = self.zva.getSData(0, True)
-    #         self.PlotdPdH(i)
-            
-    #         if i == 0:
-    #             end = time.time()
-    #             total_time = end - start
-    #             est_time = len(fields) * total_time
-    #             print(f'Estimated total time for data acquisition: {round(est_time/60, 1)} min')
-
-    #     if file_name is not None:
-    #         self.Data_Osc.save(file_name)
-    #         self.Data_dPdH.savetxt(file_name + '.dPxH', keys=['h', 'dP/dH'])
-
-    #     self.PS.current = 0
-    #     self.PS.BEEP()
     
     def Measure_dPdH(self, freq, fields, file_name, delta_H=1, read_reps=3, returnData=None):
 
